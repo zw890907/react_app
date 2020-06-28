@@ -12,7 +12,7 @@ const getData = (state, action) => {
 }
 
 const getAppList = (state, action) => {
-    return state.set('appList', action.data)
+    return state.set('appList', action.data.message)
 }
 
 export default (state = defaultState, action) => {
@@ -22,6 +22,7 @@ export default (state = defaultState, action) => {
         case constants.GET_DATA:
             return getData(state, action)
         case constants.GET_APP_LIST:
+            // debugger
             return getAppList(state, action)
         default:
             return state

@@ -16,7 +16,7 @@ class Header extends Component {
                 <p>Header: myData = {this.props.myData}</p>
                 <button onClick={()=> {this.props.getData('999')}}>更改heder的myData</button><br/>
                 <button onClick={this.getAppListData}>请求接口</button><br/>
-                <p style={{color: '#999999'}}>{this.props.appList && this.props.appList.type}</p>
+                <p style={{color: '#999999'}}>{ this.props.appList}</p>
             </div>
         )
     }

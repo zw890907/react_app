@@ -1,5 +1,6 @@
 import * as constants from './cnt'
 import request from '@/utils/request';
+import axios from 'axios';
 
 export const getData = (data) => ({
     type: constants.GET_DATA,
@@ -19,13 +20,16 @@ export const getAppList = (data) => {
         //     type: constants.GET_APP_LIST
         // });
         // 用setTimeout来模拟获取数据
-        request.post('/v2/web/application/getAppList', data).then((res)=>{
+        // request.post('/v2/web/application/getAppList', data).then((res)=>{
+        axios({
+            method: 'post',
+            url: '/v2/web/application/getAppList',
+            data: data
+        }).then((res)=>{
+            // debugger
             const action = {
                 type: constants.GET_APP_LIST,
-                // payload:{
-                //     reducer3: res.data.results[0].email
-                // }
-                data
+                data: res.data
             }
             dispatch(action)
             // return action
