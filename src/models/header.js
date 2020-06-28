@@ -21,10 +21,10 @@ export default {
                 if(res.status === 200){
                     this.saveData({
                         appListData: res.data
-                    });
+                    })
                     // this.setAppListData(res.data)
                 }
-                return res;
+                return res
             } catch (error) {
                 console.error(error);
             }
