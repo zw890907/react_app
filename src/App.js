@@ -1,14 +1,15 @@
 import React, { Fragment } from 'react';
+import defaultRoutes from './routes.js';
+import { HashRouter, Switch } from 'react-router-dom'
 
 function App() {
     return (
         <Fragment>
-            <div className="App">
-                <h1>This is React App.</h1>
-            </div>
-            <div className="App-other">
-                <h1>This is React App-ohter.</h1>
-            </div>
+            <HashRouter>
+                <Switch>
+                    {defaultRoutes}
+                </Switch>
+            </HashRouter>
         </Fragment> 
     );
 }
