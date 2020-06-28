@@ -2,7 +2,7 @@ import axios from 'axios';
 import Qs from 'qs';
 import { message } from 'antd';
 import { codeMessage } from '@/constants/config';
-import getCookie from './cookie';
+// import getCookie from './cookie';
 
 // 导出静态方法
 const all = axios.all;
@@ -16,7 +16,7 @@ const request = axios.create({
   // 返回值类型
   responseType: 'json',
   headers: {
-    'CookieData': JSON.stringify(getCookie())
+    // 'CookieData': JSON.stringify(getCookie())
   },
   paramsSerializer: params => {
     return Qs.stringify(params, { arrayFormat: 'brackets' });
