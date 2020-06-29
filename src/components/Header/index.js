@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // import * as actionCreators from './store/actionCreators'
+import $ from 'jquery'
 import './index.scss'
 
 class Header extends Component {
     getAppListData = () => {
+        console.log($('.btn').text())
         this.props.loadAppListData({
             type: 10
         })
@@ -17,13 +19,12 @@ class Header extends Component {
                 <p style={{color: '#999999'}} key={index}>{ item.content }</p>
             )
         })
-        
         return (
             <div className="M-header">
                 This is Header
                 <p>Header: myData = {this.props.myData}</p>
                 <button onClick={()=> {this.props.getData('999')}}>更改heder的myData</button><br/>
-                <button onClick={this.getAppListData}>请求接口</button><br/>
+                <button onClick={this.getAppListData} className="btn">请求接口</button><br/>
                 {appListHtml}
             </div>
         )

@@ -7,11 +7,12 @@ export default {
         appListData: [],  //app应用列表数据
     },
     reducers: {
-        // setAppListData(state, payload) {
-        //     state.appListData = payload
-        //     return state
-        // }
-        saveData: saveDataCommon
+        setAppListData(state, payload) {
+            state = JSON.parse(JSON.stringify(state));
+            state.appListData = payload
+            return state
+        }
+        // saveData: saveDataCommon
     },
     effects: {
         // 获取app应用列表
@@ -19,10 +20,10 @@ export default {
             try {
                 const res = await getAppList(data);
                 if(res.status === 200){
-                    this.saveData({
-                        appListData: res.data
-                    })
-                    // this.setAppListData(res.data)
+                    // this.saveData({
+                    //     appListData: res.data
+                    // })
+                    this.setAppListData(res.data)
                 }
                 return res
             } catch (error) {
